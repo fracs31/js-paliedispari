@@ -1,34 +1,41 @@
-/*
-let word = prompt("Inserire una parola palindroma: "); //parola inserita dall'utente
-console.log("Parola palindroma: " + isPalindrome(word)); //richiamo la funzione per capire se la parola è palindroma
-*/
+let exercise = parseInt(prompt("1: per parola palindroma 2: per pari o dispari")); //scelta dell'esericio
 
-let choise = ""; //scelta dell'utente
-let user = 0; //numero inserito dall'utente
-let pc = getRandomIntInclusive(1, 5); //numero random del pc tra 1 e 5
+//Menu
+switch (exercise) {
+    //Parola palindroma
+    case 1:
+        let word = prompt("Inserire una parola palindroma: "); //parola inserita dall'utente
+        console.log("Parola palindroma: " + isPalindrome(word)); //richiamo la funzione per capire se la parola è palindroma
+        break; //chiudo
+    //Pari o dispari
+    case 2:
+        let choise = ""; //scelta dell'utente
+        let user = 0; //numero inserito dall'utente
+        let pc = getRandomIntInclusive(1, 5); //numero random del pc tra 1 e 5
 
-//Fino a quando l'utente non sceglie bene
-while (choise != "Pari" && choise != "Dispari") {
-    choise = prompt("Pari o Dispari?"); //continuo a chiedere la sua scelta 
+        //Fino a quando l'utente non sceglie bene
+        while (choise != "Pari" && choise != "Dispari") {
+            choise = prompt("Pari o Dispari?"); //continuo a chiedere la sua scelta 
+        }
+
+        //Fino a quando l'utente non inserisce un numero da 1 e 5
+        while (!(user >= 1 && pc <= 5)) {
+            user = parseInt(prompt("Inserisci un numero tra 1 e 5")); //continuo a chiedere di inserire un numero tra 1 e 5
+        }
+
+        console.log("Numero utente: " + user); //stampo il numero dell'utente
+        console.log("Numero pc: " + pc); //stampo il numero del pc
+        console.log("Somma dei numeri: " + (user + pc)); //stampo la somma dei numeri inseriti
+        console.log("Scelta: " + choise); //stampo la scelta di gioco
+
+        //Se l'utente vince
+        if (gameEvenOrOdd(user, pc, choise) == true) {
+            console.log("L'utente vince!"); //stampo un messaggio di vittoria per l'utente
+        } else { //altrimenti se è il pc a vincere
+            console.log("Il Pc vince!"); //stampo un messaggio di vittoria per il pc
+        }
+        break; //chiudo
 }
-
-//Fino a quando l'utente non inserisce un numero da 1 e 5
-while (!(user >= 1 && pc <= 5)) {
-    user = parseInt(prompt("Inserisci un numero tra 1 e 5")); //continuo a chiedere di inserire un numero tra 1 e 5
-}
-
-console.log("Numero utente: " + user); //stampo il numero dell'utente
-console.log("Numero pc: " + pc); //stampo il numero del pc
-console.log("Somma dei numeri: " + (user + pc)); //stampo la somma dei numeri inseriti
-console.log("Scelta: " + choise); //stampo la scelta di gioco
-
-//Se l'utente vince
-if (gameEvenOrOdd(user, pc, choise) == true) {
-    console.log("L'utente vince!"); //stampo un messaggio di vittoria per l'utente
-} else { //altrimenti se è il pc a vincere
-    console.log("Il Pc vince!"); //stampo un messaggio di vittoria per il pc
-}
-
 
 //Funzione per capire se una parola è palindroma
 function isPalindrome(word) {
