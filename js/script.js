@@ -1,5 +1,13 @@
+/*
 let word = prompt("Inserire una parola palindroma: "); //parola inserita dall'utente
 console.log("Parola palindroma: " + isPalindrome(word)); //richiamo la funzione per capire se la parola è palindroma
+*/
+
+let choise = prompt("Pari o dispari?");
+let numeberPc = getRandomIntInclusive(1, 5);
+let numberUser = parseInt(prompt("Inserisci un numero tra 1 e 5"));
+gameEvenOrOdd(numberUser, numeberPc);
+
 
 //Funzione per capire se una parola è palindroma
 function isPalindrome(word) {
@@ -29,5 +37,17 @@ function isPalindrome(word) {
     }
 
     return result; //restituisco il risultato
+
+}
+
+//Funzione per ottenere numeri random con un range tra due valori
+function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min); //arrotondo per eccesso
+    max = Math.floor(max); //arrotondo per difetto
+    return Math.floor(Math.random() * (max - min + 1) + min); //restituisco il numero random
+}
+
+//Funzione per il gioco "pari o dispari"
+function gameEvenOrOdd(user, pc) {
 
 }
