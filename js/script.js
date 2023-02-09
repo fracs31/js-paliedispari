@@ -42,7 +42,7 @@ function isPalindrome(word) {
     let reverse = word.split("").reverse().join(""); //parola al contrario
     let result = false; //variabile che controlla se la parola inserita è palindroma
     //Se la parola inserita è uguale alla parola al contrario
-    if (word == reverse) {
+    if (word.toLowerCase() == reverse.toLowerCase()) {
         result = true; //la parola inserita è palindroma
     }
     return result; //restituisco il risultato
